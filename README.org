@@ -1,0 +1,4 @@
+* SICP solutions
+
+These are my solutions to the problems included in Abelson and Sussmand's Structure and Interpretation of Computer
+Programs ([[https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html][SICP]]). The solutions are implemented in [[https://www.call-cc.org/][CHICKEN Scheme]].
