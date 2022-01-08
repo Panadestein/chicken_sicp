@@ -1,10 +1,11 @@
-;; First Scheme snippets
+;; First contact with S-expressions
 
 (+ (* 3
       (+ (* 2 4)
 	 (+ 3 5)))
    (+ (- 10 7)
       6)) ;; 57
+
 
 ;; Exercise 1
 
@@ -38,3 +39,41 @@
 
 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
    (* 3 (- 6 2) (- 2 7))) 		;; -37/150
+
+
+;; Exercise 3
+;; This solution is too explicit, it is better to define
+;; a procedure that adds the sum of two squares
+
+(define (sqlar a b c)
+  (cond ((and (<= a b) (<= a c)) (+ (* b b) (* c c)))
+	((and (<= b a) (<= b c)) (+ (* a a) (* c c)))
+	(else (+ (* a a) (* b b)))))
+(sqlar 1 2 3)  				;; 36
+
+
+;; Exercise 4
+
+(define (a-plus-abs-b a b)
+  ((if (> b 0) + -) a b))
+
+;; Description:
+;; This procedure adds or subtract the numbers a and b depending on
+;; the sign of b
+
+(a-plus-abs-b 1 2) 			;; 3
+
+
+;; Exercise 5
+
+(define (p) (p))
+(define (test x y)
+  (if (= x 0) 0 y))
+
+(test 0 (p))
+
+;; Normal-order  -->  fully expand and then reduce
+;; Applicative-order  -->  evaluate the arguments and then apply
+
+;; In applicative-order the expression will enter an infinite loop
+;; In normal-order the answer is zero
