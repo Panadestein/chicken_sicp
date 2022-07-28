@@ -1,0 +1,99 @@
+#+TITLE: Chapter 1 
+
+* First contact with S-expressions
+
+#+begin_src racket
+  (+ (* 3
+        (+ (* 2 4)
+           (+ 3 5)))
+     (+ (- 10 7)
+        6))
+#+end_src
+
+#+RESULTS:
+: 57
+
+* Exercise 1
+
+#+begin_src racket
+  10 		
+  (+ 5 3 4)
+  (- 9 1) 
+  (/ 6 2)
+  (+ (* 2 4) (- 4 6)) 
+  (define a 3) 		
+  (define b (+ a 1))
+  (+ a b (* a b)) 
+  (= a b) 	
+
+  (if (and (> b a) (< b (* a b)))
+      b
+      a) 		
+
+  (cond ((= a 4) 6)
+        ((= b 4) (+ 6 7 a))
+        (else 25)) 	
+
+  (+ 2 (if (> b a) b a)) 
+
+  (* (cond ((> a b) a)
+           ((< a b) b)
+           (else -1))
+     (+ a 1)) 
+#+end_src
+
+#+RESULTS:
+: 16
+
+* Exercise 2
+
+#+begin_src racket
+  (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
+     (* 3 (- 6 2) (- 2 7))) 
+#+end_src
+
+#+RESULTS:
+: -37/150
+
+
+* Exercise 3
+This solution is too explicit, it is better to define a procedure that adds the sum of two squares.
+
+#+begin_src racket
+   #lang r5rs
+  (define (sqlar a b c)
+    (cond ((and (<= a b) (<= a c)) (+ (* b b) (* c c)))
+	  ((and (<= b a) (<= b c)) (+ (* a a) (* c c)))
+	  (else (+ (* a a) (* b b)))))
+  (sqlar 1 2 3)
+#+end_src
+
+#+RESULTS:
+: 13
+
+* Exercise 4
+This procedure adds or subtract the numbers a and b depending on the sign of b:
+
+#+begin_src racket :results output
+  (define (a-plus-abs-b a b)
+    ((if (> b 0) + -) a b))
+  (a-plus-abs-b 1 2)
+#+end_src
+
+#+RESULTS:
+: 3
+
+* Exercise 5
+- Normal-order: fully expand and then reduce
+- Applicative-order: evaluate the arguments and then apply
+  
+In applicative-order the expression will enter an infinite loop. In normal-order the answer is zero:
+
+#+begin_src racket
+  (define (p) (p))
+  (define (test x y)
+    (if (= x 0) 0 y))
+
+  (test 0 (p))
+#+end_src
+
