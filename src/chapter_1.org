@@ -2,7 +2,7 @@
 
 * First contact with S-expressions
 
-#+begin_src racket
+#+begin_src racket :lang sicp
   (+ (* 3
         (+ (* 2 4)
            (+ 3 5)))
@@ -10,12 +10,9 @@
         6))
 #+end_src
 
-#+RESULTS:
-: 57
-
 * Exercise 1
 
-#+begin_src racket
+#+begin_src racket :lang sicp
   10 		
   (+ 5 3 4)
   (- 9 1) 
@@ -47,7 +44,7 @@
 
 * Exercise 2
 
-#+begin_src racket
+#+begin_src racket :lang sicp 
   (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
      (* 3 (- 6 2) (- 2 7))) 
 #+end_src
@@ -59,8 +56,7 @@
 * Exercise 3
 This solution is too explicit, it is better to define a procedure that adds the sum of two squares.
 
-#+begin_src racket
-   #lang r5rs
+#+begin_src racket :lang sicp
   (define (sqlar a b c)
     (cond ((and (<= a b) (<= a c)) (+ (* b b) (* c c)))
 	  ((and (<= b a) (<= b c)) (+ (* a a) (* c c)))
@@ -74,7 +70,7 @@ This solution is too explicit, it is better to define a procedure that adds the 
 * Exercise 4
 This procedure adds or subtract the numbers a and b depending on the sign of b:
 
-#+begin_src racket :results output
+#+begin_src racket :lang sicp
   (define (a-plus-abs-b a b)
     ((if (> b 0) + -) a b))
   (a-plus-abs-b 1 2)
@@ -89,7 +85,7 @@ This procedure adds or subtract the numbers a and b depending on the sign of b:
   
 In applicative-order the expression will enter an infinite loop. In normal-order the answer is zero:
 
-#+begin_src racket
+#+begin_src racket :lang sicp
   (define (p) (p))
   (define (test x y)
     (if (= x 0) 0 y))
@@ -97,3 +93,87 @@ In applicative-order the expression will enter an infinite loop. In normal-order
   (test 0 (p))
 #+end_src
 
+* Exercise 6
+
+The =sqrt= procedure can be tested with and without the =new-if= procedure here:
+
+#+begin_src racket :lang sicp
+  (define (new-if predicate then-clause else-clause)
+    (cond (predicate then-clause)
+          (else else-clause)))
+
+  (define (sqrt-iter guess x)
+    (if (quality-of-guess? guess x)
+        guess
+        (sqrt-iter (improve-guess guess x) x)))
+
+  (define (square x)
+    (* x x))
+
+  (define (abs x)
+    (cond ((< x 0) (- x))
+          (else x)))
+
+  (define (quality-of-guess? guess x)
+    (< (abs (- (square guess) x)) 0.001))
+
+  (define (average x y)
+    (/ (+ x y) 2))
+
+  (define (improve-guess guess x)
+    (average guess (/ x guess)))
+
+  (define (sqrt x)
+    (sqrt-iter 1.0 x))
+
+  (sqrt 0.000001)
+#+end_src
+
+#+RESULTS:
+: 0.031260655525445276
+
+If we toggle the =new-if= procedure instead of the =if= special form the applicative order of Scheme will bite us
+and we will enter and infinite loop, in particular due to the third parameter.
+
+* Exercise 7
+
+The usual limitations of floating point arithmetic apply here. Squaring big numbers can result in overflow,
+adding very small and large numbers lead to loss of precision. For large number the separation between two
+consecutive numbers is bigger. In addition, the initial absolute tolerance of 0.001 will be obviously
+insufficient to deal with numbers smaller than it. 
+
+#+begin_src racket :lang sicp
+  (define (quality-of-guess? guess x)
+    (< (abs (- guess
+               (improve-guess guess x)))
+       (* (abs guess) 0.01)))
+#+end_src
+
+* Exercise 8
+
+Implementing the cube root formula.
+
+#+begin_src racket :lang sicp
+  (define (cubic-iter guess x)
+    (if (quality-of-guess? guess x)
+        guess
+        (cubic-iter (improve-cubic-guess guess x) x)))
+
+  (define (improve-cubic-guess guess x)
+    (/ (+ (/ x (* guess guess))
+          (* guess 2))
+       3))
+
+  (define (quality-of-guess? guess x)
+    (< (abs (- guess
+               (improve-cubic-guess guess x)))
+       (* (abs guess) 0.001)))
+
+  (define (cubert x)
+    (cubic-iter 1.0 x))
+
+  (cubert 100)
+#+end_src
+
+#+RESULTS:
+: 4.6440247053200965
