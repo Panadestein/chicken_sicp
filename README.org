@@ -1,16 +1,8 @@
 * SICP solutions
 
-These are my solutions to the problems included in Abelson and Sussmand's Structure and Interpretation of Computer
-Programs ([[https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html][SICP]]). The obvious choice for this endeavor would be =org-mode=, however [[https://docs.racket-lang.org/scribble/index.html][scribble]] seems to be a very
-interesting alternative.
-
-* TODO
-
-So far I am building the site locally using:
-
-#+begin_src bash
-  scribble --htmls ++xref-in setup/xref load-collections-xref\
-   --redirect-main "https://docs.racket-lang.org/" --dest build/ sicp.scrbl
-#+end_src
-
-This will eventually go in a continuous integration pipeline.
+These are my solutions to the problems included in Abelson and Sussmand's
+Structure and Interpretation of Computer Programs ([[https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html][SICP]]).
+The obvious choice for this endeavor would have been =org-mode=, however [[https://docs.racket-lang.org/scribble/index.html][scribble]]
+(and the whole [[https://racket-lang.org/][Racket]] ecosystem, really) seems to be a very interesting alternative.
+Using the later, I am in a way also using Scheme for generating the [[https://panadestein.github.io/solved_sicp/][solution's website]], which
+looks really nice by default.
