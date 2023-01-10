@@ -1,8 +1,20 @@
-* SICP solutions
+#+TITLE: SICP solutions
+#+AUTHOR: Panadestein
+
+#+BEGIN_HTML
+<a href="https://raw.githubusercontent.com/Panadestein/emacsd/master/LICENSE.md">
+<img alt="GitHub" src="https://img.shields.io/github/license/Panadestein/solved_sicp">
+</a>
+
+<a href="https://github.com/Panadestein/solved_sicp/actions/workflows/publish.yml">
+<img alt="Build status" src="https://github.com/Panadestein/solved_sicp/actions/workflows/publish.yml/badge.svg" />
+</a>
+#+END_HTML
 
 These are my solutions to the problems included in Abelson and Sussmand's
 Structure and Interpretation of Computer Programs ([[https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html][SICP]]).
-The obvious choice for this endeavor would have been =org-mode=, however [[https://docs.racket-lang.org/scribble/index.html][scribble]]
-(and the whole [[https://racket-lang.org/][Racket]] ecosystem, really) seems to be a very interesting alternative.
-Using the later, I am in a way also using Scheme for generating the [[https://panadestein.github.io/solved_sicp/][solution's website]], which
-looks really nice by default.
+
+The solutions are organized in a nice website. The obvious choice for this endeavor
+would have been =org-mode= with [[https://orgmode.org/worg/org-contrib/babel/][org-babel]], however, [[https://docs.racket-lang.org/scribble/index.html][scribble]]
+(and the whole [[https://racket-lang.org][Racket]] ecosystem) seemed to be a very interesting alternative. I decided for the later,
+because in a way, I am also using Scheme for generating the [[https://panadestein.github.io/solved_sicp/][solution's website]].
