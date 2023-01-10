@@ -24,10 +24,10 @@ jobs:
         run: raco pkg install sicp
 
       - name: Build the site
-        run: scribble --htmls ++xref-in setup/xref load-collections-xref  --redirect-main "https://docs.racket-lang.org/" --dest build/ sicp.scrbl
+        run: scribble --htmls ++xref-in setup/xref load-collections-xref  --redirect-main "https://docs.racket-lang.org/" --dest build/ src/scribble/sicp.scrbl
 
       - name: Publish generated content to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: src/scribble/build/sicp
+          folder: build/sicp
