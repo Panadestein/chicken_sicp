@@ -4,4 +4,4 @@
 @(require (for-label racket))
 @(require "utils.rkt")
 
-@title[#:version "" #:tag "chapter-5"]{Computing with Register Machines}
+@title[#:version "" #:tag "chapter-5" #:style 'quiet]{Computing with Register Machines}

@@ -5,9 +5,9 @@
 @title[#:version "" #:style '(toc)]{Solutions to the SICP exercises}
 @author{Ramón L. Panadés Barrueta}
 
-The following solutions to the @(hyperlink "https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html" "SICP") problems were tested using @(hyperlink "https://racket-lang.org/" "Racket") and the @racket[#, @hash-lang[] #, @racketmodname[sicp]] directive. If you want to compare my solutions with other people's work, feel free to visit the Scheme @(hyperlink "http://community.schemewiki.org/?SICP-Solutions" "wiki"), and the the other resources linked in there.
+The following solutions to the @(hyperlink "https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html" "SICP") problems were tested using @(hyperlink "https://racket-lang.org/" "Racket") and the @racket[#, @hash-lang[]] @(hyperlink "https://docs.racket-lang.org/sicp-manual/index.html" "sicp") directive. If you want to compare my solutions with other people's work, feel free to visit the Scheme @(hyperlink "http://community.schemewiki.org/?SICP-Solutions" "wiki"), and the the other resources linked in there.
 
-@local-table-of-contents[]
+@table-of-contents[]
 
 @include-section["chapter_1.scrbl"]
 @include-section["chapter_2.scrbl"]

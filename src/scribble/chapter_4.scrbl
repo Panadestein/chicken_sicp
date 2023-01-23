@@ -4,4 +4,4 @@
 @(require (for-label racket))
 @(require "utils.rkt")
 
-@title[#:version "" #:tag "chapter-4"]{Metalinguistic Abstraction}
+@title[#:version "" #:tag "chapter-4" #:style 'quiet]{Metalinguistic Abstraction}

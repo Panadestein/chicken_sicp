@@ -4,4 +4,4 @@
 @(require (for-label racket))
 @(require "utils.rkt")
 
-@title[#:version "" #:tag "chapter-2"]{Building Abstractions with Data}
+@title[#:version "" #:tag "chapter-2" #:style 'quiet]{Building Abstractions with Data}

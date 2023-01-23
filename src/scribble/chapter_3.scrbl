@@ -4,4 +4,4 @@
 @(require (for-label racket))
 @(require "utils.rkt")
 
-@title[#:version "" #:tag "chapter-3"]{Modularity, Objects, and State}
+@title[#:version "" #:tag "chapter-3" #:style 'quiet]{Modularity, Objects, and State}

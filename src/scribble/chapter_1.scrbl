@@ -8,9 +8,9 @@
    (codeblock #:context #'a #:keep-lang-line? #f
               "#lang scribble/base" "\n" a . text))
 
-@title[#:version "" #:tag "chapter-1"]{Building Abstractions with Procedures}
+@title[#:version "" #:tag "chapter-1" #:style 'quiet]{Building Abstractions with Procedures}
 
-@section[#:style 'unnumbered #:tag "preamble"]{Preamble}
+@section[#:style 'unnumbered  #:tag "preamble"]{Preamble}
 
 First contact with S-expressions
 
