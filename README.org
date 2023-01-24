@@ -9,7 +9,10 @@
 <a href="https://github.com/Panadestein/solved_sicp/actions/workflows/publish.yml">
 <img alt="Build status" src="https://github.com/Panadestein/solved_sicp/actions/workflows/publish.yml/badge.svg" />
 </a>
+
+<a href="https://xkcd.com/297/">
 <img alt="Solved problems" src="https://progress-bar.dev/3/?title=Solved" />
+</a>
 #+END_HTML
 
 These are my solutions to the problems included in Abelson and Sussmand's
