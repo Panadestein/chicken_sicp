@@ -16,7 +16,7 @@
 #+END_HTML
 
 These are my solutions to the problems included in Abelson and Sussmand's
-Structure and Interpretation of Computer Programs ([[https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html][SICP]]).
+Structure and Interpretation of Computer Programs ([[https://sarabander.github.io/sicp/html/][SICP]]).
 
 The solutions are organized in a nice website. The obvious choice for this endeavor
 would have been =org-mode= with [[https://orgmode.org/worg/org-contrib/babel/][org-babel]], however, [[https://docs.racket-lang.org/scribble/index.html][scribble]]
