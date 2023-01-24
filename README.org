@@ -2,7 +2,7 @@
 #+AUTHOR: Panadestein
 
 #+BEGIN_HTML
-<a href="https://raw.githubusercontent.com/Panadestein/emacsd/master/LICENSE.md">
+<a href="https://raw.githubusercontent.com/Panadestein/solved_sicp/master/LICENSE.md">
 <img alt="GitHub" src="https://img.shields.io/github/license/Panadestein/solved_sicp">
 </a>
 
