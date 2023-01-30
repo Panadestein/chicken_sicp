@@ -23,6 +23,9 @@ jobs:
       - name: Install sicp language
         run: raco pkg install sicp
 
+      - name: TeX support for scribble
+        run: raco pkg install scribble-math
+        
       - name: Build the site
         run: scribble --htmls ++xref-in setup/xref load-collections-xref  --redirect-main "https://docs.racket-lang.org/" --dest build/ src/scribble/sicp.scrbl
 
