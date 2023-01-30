@@ -2,7 +2,7 @@
 
 @(require (for-label racket))
 
-@title[#:version "" #:style '(toc)]{Solutions to the SICP exercises}
+@title[#:version "" #:style '(toc)]{SICP solutions}
 @author{Ramón L. Panadés Barrueta}
 
 Welcome to my solutions to the exercises in Abelson and Sussmand’s
