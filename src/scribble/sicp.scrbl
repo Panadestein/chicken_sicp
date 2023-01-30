@@ -5,7 +5,11 @@
 @title[#:version "" #:style '(toc)]{Solutions to the SICP exercises}
 @author{Ramón L. Panadés Barrueta}
 
-The following solutions to the @(hyperlink "https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html" "SICP") problems were tested using @(hyperlink "https://racket-lang.org/" "Racket") and the @racket[#, @hash-lang[]] @(hyperlink "https://docs.racket-lang.org/sicp-manual/index.html" "sicp") directive. If you want to compare my solutions with other people's work, feel free to visit the Scheme @(hyperlink "http://community.schemewiki.org/?SICP-Solutions" "wiki"), and the the other resources linked in there.
+Welcome to my solutions to the exercises in Abelson and Sussmand’s
+Structure and Interpretation of Computer Programs (@(hyperlink "https://sarabander.github.io/sicp/html/" "SICP")). All the exercises are solved using @(hyperlink "https://racket-lang.org/" "Racket") and the @racket[#, @hash-lang[]] @(hyperlink "https://docs.racket-lang.org/sicp-manual/index.html" "sicp") directive.
+
+As a physicist by training, there may be some areas where my solutions could be improved. If you find any, please help me avoid embarrassment by submitting a 
+@(hyperlink "https://github.com/Panadestein/solved_sicp" "pull request"). If you'd like to compare my solutions to those of others, you can visit the @(hyperlink "http://community.schemewiki.org/?SICP-Solutions" "Scheme wiki") and other resources linked there.
 
 @table-of-contents[]
 
