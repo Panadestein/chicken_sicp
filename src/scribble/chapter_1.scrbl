@@ -111,7 +111,8 @@ In applicative-order the expression will enter an infinite loop. In normal-order
           (test 0 (p))
           ]
 
-Of course, I have used @bold{lazy evaluation} in the above code, which can be achieved in @racketmodname[scribble/base] as follows:
+Of course, I have used @bold{lazy evaluation} in the above code, which can be achieved
+in @racketmodname[scribble/base] as follows:
 
 @sample|{
 @examples[#:eval my-eval-lazy
@@ -164,11 +165,17 @@ The @tt{sqrt} procedure can be tested with and without the @tt{new-if} procedure
           (sqrt 0.000001)
           ]
 
-If we toggle the @tt{new-if} procedure instead of the @racket[if] special form the applicative order of Scheme will bite us and we will enter and infinite loop, in particular due to the third parameter.
+If we toggle the @tt{new-if} procedure instead of the @racket[if] special form the applicative
+order of Scheme will bite us and we will enter and infinite loop,
+in particular due to the third parameter.
 
 @section[#:style 'unnumbered #:tag "e1.7"]{Exercise 1.7}
 
-The usual limitations of floating point arithmetic apply here. Squaring big numbers can result in overflow, adding very small and large numbers lead to loss of precision. For large number the separation between two consecutive numbers is bigger. In addition, the initial absolute tolerance of 0.001 will be obviously insufficient to deal with numbers smaller than it. 
+The usual limitations of floating point arithmetic apply here. Squaring big numbers can
+result in overflow, adding very small and large numbers lead to loss of precision.
+For large number the separation between two consecutive numbers is bigger.
+In addition, the initial absolute tolerance of 0.001 will be obviously insufficient
+to deal with numbers smaller than it. 
 
 @examples[#:eval my-eval
           #:label "Answer:"
@@ -300,7 +307,8 @@ Mathematical definitions:
 @racketblock[
  (define (h n) (A 2 n))
  ]
-This is a nice @(hyperlink "https://en.wikipedia.org/wiki/Tetration" "tetration") @($ "^n2 = 2^{2^{2^{.^{.^{.}}}}}")
+This is a nice @(hyperlink "https://en.wikipedia.org/wiki/Tetration" "tetration")
+@($ "^n2 = 2^{2^{2^{.^{.^{.}}}}}")
 
 @section[#:style 'unnumbered #:tag "com1"]{First memento}
 
@@ -308,11 +316,15 @@ In Section @(hyperlink "https://sarabander.github.io/sicp/html/1_002e2.xhtml#g_t
 we can read:
 
 @margin-note{
- In general, the number of steps required by a tree-recursive process will be proportional to the number of nodes in the tree, while the space required will
- be proportional to the maximum depth of the tree.
-}
+             In general, the number of steps required by a tree-recursive process will be proportional
+             to the number of nodes in the tree, while the space required will
+             be proportional to the maximum depth of the tree.}
 
-I find the above to be a non-trivial statement. It is true, because in applicative order there will be successive expansions on one branch followed by the corresponding contractions, instead of the full expansion that we would have in normal order. There is a good discussion about it in @(hyperlink "https://stackoverflow.com/questions/27345652/tree-recursive-fibonacci-algorithm-requires-linear-space" "SO").
+I find the above to be a non-trivial statement. It is true, because in applicative order there
+will be successive expansions on one branch followed by the corresponding contractions, instead
+of the full expansion that we would have in normal order. There is a good discussion about it in
+@(hyperlink "https://stackoverflow.com/questions/27345652/tree-recursive-fibonacci-algorithm-requires-linear-space"
+            "SO").
 
 @section[#:style 'unnumbered #:tag "e1.11"]{Exercise 1.11}
 
@@ -346,3 +358,5 @@ I find the above to be a non-trivial statement. It is true, because in applicati
                                (- count 1)))))
           (map f '(0 1 2 5))
           ]
+
+@section[#:style 'unnumbered #:tag "e1.12"]{Exercise 1.12}
