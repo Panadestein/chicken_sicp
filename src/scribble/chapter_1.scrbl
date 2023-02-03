@@ -17,7 +17,7 @@
 
 First contact with S-expressions
 
-@examples[#:eval my-eval
+@examples[#:eval my-eval-sicp
           #:label #f
           #:no-inset
           (+ (* 3
@@ -29,7 +29,7 @@ First contact with S-expressions
 
 @section[#:style 'unnumbered #:tag "e1.1"]{Exercise 1.1}
 
-@examples[#:eval my-eval
+@examples[#:eval my-eval-sicp
           #:label "Solution:"
           #:no-inset
           10
@@ -60,7 +60,7 @@ First contact with S-expressions
 
 @section[#:style 'unnumbered #:tag "e1.2"]{Exercise 1.2}
 
-@examples[#:eval my-eval
+@examples[#:eval my-eval-sicp
           #:label "Solution:"
           #:no-inset
           (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
@@ -71,7 +71,7 @@ First contact with S-expressions
 
 This solution is too explicit, it is better to define a procedure that adds the sum of two squares.
 
-@examples[#:eval my-eval
+@examples[#:eval my-eval-sicp
           #:label "Solution:"
           #:no-inset
           (define (sqlar a b c)
@@ -85,7 +85,7 @@ This solution is too explicit, it is better to define a procedure that adds the 
 
 This procedure adds or subtract the numbers a and b depending on the sign of b:
 
-@examples[#:eval my-eval
+@examples[#:eval my-eval-sicp
           #:label "Solution:"
           #:no-inset
           (define (a-plus-abs-b a b)
@@ -131,7 +131,7 @@ with:
 
 The @tt{sqrt} procedure can be tested with and without the @tt{new-if} procedure here:
 
-@examples[#:eval my-eval
+@examples[#:eval my-eval-sicp
           #:label "Answer:"
           #:no-inset
           (define (new-if predicate then-clause else-clause)
@@ -177,7 +177,7 @@ For large number the separation between two consecutive numbers is bigger.
 In addition, the initial absolute tolerance of 0.001 will be obviously insufficient
 to deal with numbers smaller than it. 
 
-@examples[#:eval my-eval
+@examples[#:eval my-eval-sicp
           #:label "Answer:"
           #:no-inset
           (define (quality-of-guess? guess x)
@@ -190,7 +190,7 @@ to deal with numbers smaller than it.
 
 Implementing the cube root formula.
 
-@examples[#:eval my-eval
+@examples[#:eval my-eval-sicp
           #:label "Answer:"
           #:no-inset
           (define (cubic-iter guess x)
@@ -254,7 +254,7 @@ We can apply the substitution model to verify this claim:
 
 @section[#:style 'unnumbered #:tag "e1.10"]{Exercise 1.10}
 
-@examples[#:eval my-eval
+@examples[#:eval my-eval-sicp
           #:label "Answer:"
           #:no-inset
           (define (A x y)
@@ -334,6 +334,9 @@ of the full expansion that we would have in normal order. There is a good discus
    f(n-1) + 2f(n-2) + 3f(n-3) & n \\geq 3
 \\end{cases}")
 
+I am assuming the following functions will be evaluated on natural numbers, for integers
+you need to add a check to catch negative values.
+
 @examples[#:eval my-eval-racket
           #:label "Recursive:"
           #:no-inset
@@ -360,3 +363,17 @@ of the full expansion that we would have in normal order. There is a good discus
           ]
 
 @section[#:style 'unnumbered #:tag "e1.12"]{Exercise 1.12}
+
+@examples[#:eval my-eval-racket
+          #:label "Solution:"
+          #:no-inset
+          (define (pascal n m)
+            (cond ((or (< n m) (< m 1)) #f)
+                  ((or (= m 1) (= m n)) 1)
+                  (else
+                   (+ (pascal (- n 1) m)
+                      (pascal (- n 1) (- m 1))))))
+          (map (lambda (row elem) (pascal row elem))
+               (make-list 8 8)
+               (build-list 8 (lambda (x) (+ x 1))))
+          ]

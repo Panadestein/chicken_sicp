@@ -1,11 +1,11 @@
 #lang racket
 
 (require scribble/examples)
-(provide my-eval
+(provide my-eval-sicp
          my-eval-racket
          my-eval-lazy)
 
-(define my-eval
+(define my-eval-sicp
   (make-base-eval
    #:pretty-print? #t
    #:lang 'sicp))
