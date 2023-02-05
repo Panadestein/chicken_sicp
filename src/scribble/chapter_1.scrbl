@@ -323,8 +323,9 @@ we can read:
 I find the above to be a non-trivial statement. It is true, because in applicative order there
 will be successive expansions on one branch followed by the corresponding contractions, instead
 of the full expansion that we would have in normal order. There is a good discussion about it in
-@(hyperlink "https://stackoverflow.com/questions/27345652/tree-recursive-fibonacci-algorithm-requires-linear-space"
-            "SO").
+@(hyperlink
+  "https://stackoverflow.com/questions/27345652/tree-recursive-fibonacci-algorithm-requires-linear-space"
+  "SO").
 
 @section[#:style 'unnumbered #:tag "e1.11"]{Exercise 1.11}
 
@@ -382,27 +383,93 @@ the n - 1 power of the binomial. For example:
           #:label #f
           #:no-inset
           (map (lambda (row elem) (pascal row elem))
-               (make-list 3 3)
-               (build-list 3 values))
+               (make-list 5 5)
+               (build-list 5 values))
           ]
 
-That test was neither fancy nor extensive, we can try to do better, although we are not
-supposed to use this tools at the current chapter of the book:
+Of course, the previous test was neither fancy nor extensive. We can do better,
+although we are not supposed to use the following tools at the current stage
+of the book:
 
 @examples[#:eval my-eval-racket
           #:label #f
           #:no-inset
           (define (print-pascal n row)
-            (append (make-list (- n row) "*")
-                    (map (lambda (col)
-                           (string-append
-                            (number->string (pascal row col)) "*"))
-                         (build-list row values))
-                    "\n"))
-
+            (string-append (make-string (- n row) #\space)
+                           (string-join (map (lambda (col)
+                                               (~a (pascal row col)))
+                                             (build-list row values)))
+                           "\n"))
+          
           (display
            (string-join
-            (flatten (map (lambda (row) (print-pascal 5 row))
-                          (build-list 5 (lambda (idx) (+ idx 1)))))))
+            (map (lambda (row) (print-pascal 5 row))
+                 (build-list 5 (lambda (idx) (+ idx 1))))
+            ""))
           ]
+
+On a side note, it would be more efficient to build the triangle's elements using
+Pascal's rule:
+
+@($$ "\\binom{n}{k} = \\binom{n-1}{k-1} + \\binom{n-1}{k}")
+
+@section[#:style 'unnumbered #:tag "e1.13"]{Exercise 1.13}
+
+We will prove by induction that the n@(superscript "th") Fibonacci number is given by:
+
+@($$ "\\text{Fib}(n) = \\frac{\\phi^n-\\psi^n}{\\sqrt{5}}")
+
+with @($ "\\phi = \\frac{1+\\sqrt{5}}{2}") and @($ "\\psi = \\frac{1-\\sqrt{5}}{2}").
+
+@bold{Proof}:
+
+@itemlist{
+          @item{Base case:}
+          }
+
+@($$ "\\text{Fib}(0) = \\frac{\\phi^0-\\psi^0}{\\sqrt{5}} = 0")
+@($$ "\\text{Fib}(1) = \\frac{\\frac{2\\sqrt{5}}{2}}{\\sqrt{5}} = 1")
+
+@itemlist{
+          @item{Induction step:}
+          }
+
+@($$ "
+\\begin{align}
+  \\text{Fib}(n+1) &= \\text{Fib}(n) + \\text{Fib}(n-1) \\\\
+                   &= \\frac{\\phi^n-\\psi^n + \\phi^{n-1}-\\psi^{n-1}}{\\sqrt{5}} \\\\
+                   &= \\frac{\\phi^{n+1}\\frac{(\\phi+1)}{\\phi^2}
+                            -\\psi^{n+1}\\frac{(\\psi+1)}{\\psi^2}}{\\sqrt{5}} \\\\
+                   &= \\frac{\\phi^{n+1}-\\psi^{n+1}}{\\sqrt{5}} \\quad \\blacksquare.
+\\end{align}
+")
+
+In the proof, we have exploited the fact that both @($ "\\phi") and @($ "\\psi") are solutions of the
+quadratic Golden Ratio's equation. This concludes the first part of the problem. In the second one,
+we want to prove that:
+
+@($$ "\\text{nint}(\\frac{\\phi^n}{\\sqrt{5}}) = \\text{Fib}(n)")
+
+@(bold "Proof"):
+
+Suppose the nearest integer is @($ "m"), then:
+
+@($$ "|\\frac{\\phi^n}{\\sqrt{5}}-m|\\leq \\frac{1}{2}")
+
+or:
+
+@($$ "
+\\begin{align}
+|\\text{Fib}(n)-m+\\frac{\\psi^n}{\\sqrt{5}}|&\\leq \\frac{1}{2} \\\\
+-\\frac{1}{2}- \\frac{\\psi^n}{\\sqrt{5}}\\leq \\text{Fib}(n)-m &\\leq
+ \\frac{1}{2}-\\frac{\\psi^n}{\\sqrt{5}}
+\\end{align}
+")
+
+
+
+
+
+
+
 
