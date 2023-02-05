@@ -368,12 +368,41 @@ you need to add a check to catch negative values.
           #:label "Solution:"
           #:no-inset
           (define (pascal n m)
-            (cond ((or (< n m) (< m 1)) #f)
-                  ((or (= m 1) (= m n)) 1)
+            (cond ((or (< n m) (< m 0)) #f)
+                  ((or (= m 0) (= m (- n 1))) 1)
                   (else
                    (+ (pascal (- n 1) m)
                       (pascal (- n 1) (- m 1))))))
-          (map (lambda (row elem) (pascal row elem))
-               (make-list 8 8)
-               (build-list 8 (lambda (x) (+ x 1))))
           ]
+
+The above function is zero-based, so the n@(superscript "th") argument corresponds to
+the n - 1 power of the binomial. For example:
+
+@examples[#:eval my-eval-racket
+          #:label #f
+          #:no-inset
+          (map (lambda (row elem) (pascal row elem))
+               (make-list 3 3)
+               (build-list 3 values))
+          ]
+
+That test was neither fancy nor extensive, we can try to do better, although we are not
+supposed to use this tools at the current chapter of the book:
+
+@examples[#:eval my-eval-racket
+          #:label #f
+          #:no-inset
+          (define (print-pascal n row)
+            (append (make-list (- n row) "*")
+                    (map (lambda (col)
+                           (string-append
+                            (number->string (pascal row col)) "*"))
+                         (build-list row values))
+                    "\n"))
+
+          (display
+           (string-join
+            (flatten (map (lambda (row) (print-pascal 5 row))
+                          (build-list 5 (lambda (idx) (+ idx 1)))))))
+          ]
+
