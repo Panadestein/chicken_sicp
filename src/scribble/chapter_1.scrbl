@@ -452,24 +452,18 @@ we want to prove that:
 
 @(bold "Proof"):
 
-Suppose the nearest integer is @($ "m"), then:
+We will choose the folling definition of the nearest integer function:
 
-@($$ "|\\frac{\\phi^n}{\\sqrt{5}}-m|\\leq \\frac{1}{2}")
+@($$ "|x - \\text{nint}(x)| < \\frac{1}{2}")
 
-or:
+In our case:
+
 
 @($$ "
 \\begin{align}
-|\\text{Fib}(n)-m+\\frac{\\psi^n}{\\sqrt{5}}|&\\leq \\frac{1}{2} \\\\
--\\frac{1}{2}- \\frac{\\psi^n}{\\sqrt{5}}\\leq \\text{Fib}(n)-m &\\leq
- \\frac{1}{2}-\\frac{\\psi^n}{\\sqrt{5}}
+  \\Bigl|\\frac{\\phi^n}{\\sqrt{5}} - \\text{Fib}(n) \\Bigr| &< \\frac{1}{2} \\\\
+  \\Bigl|\\frac{\\psi^n}{\\sqrt{5}}\\Bigr| &< \\frac{1}{2}
 \\end{align}
 ")
 
-
-
-
-
-
-
-
+The above is a true statement, because @($ "|\\psi^n|<1") and @($ "2<\\sqrt{5}"). @($ "\\blacksquare")

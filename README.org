@@ -11,7 +11,7 @@
 </a>
 
 <a href="https://xkcd.com/297/">
-<img alt="Solved problems" src="https://progress-bar.dev/3/?title=Solved" />
+<img alt="Solved problems" src="https://progress-bar.dev/4/?title=Solved" />
 </a>
 #+END_HTML
 
