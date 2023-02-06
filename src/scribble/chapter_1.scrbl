@@ -452,12 +452,11 @@ we want to prove that:
 
 @(bold "Proof"):
 
-We will choose the folling definition of the nearest integer function:
+We choose the following definition for the nearest integer function:
 
 @($$ "|x - \\text{nint}(x)| < \\frac{1}{2}")
 
 In our case:
-
 
 @($$ "
 \\begin{align}
