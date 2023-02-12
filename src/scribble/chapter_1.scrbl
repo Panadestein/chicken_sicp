@@ -571,4 +571,4 @@ file of the @(hyperlink "https://github.com/Panadestein/solved_sicp.git" "repo")
                  0.5)
           ]
 
-In applicative order, the space order of growth is then @($ "\Theta(n)").
+In applicative order, the space order of growth is then @($ "\\Theta(n)").
