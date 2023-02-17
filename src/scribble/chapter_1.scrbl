@@ -494,12 +494,9 @@ types @($ "t_i") and corresponding values @($ "v(t_i)") is the sum of:
                   ((= type 1) 1)))
           (count-change 11)
           ]
-
+          
 @examples[#:eval my-eval-racket
           #:hidden
-          (require pict
-                   pict/tree-layout
-                   "utils.rkt")
           (define cc-backtrace
             '(+
               (+
@@ -558,8 +555,36 @@ types @($ "t_i") and corresponding values @($ "v(t_i)") is the sum of:
 
 Using @racket[#, @racketmodname[racket/trace]] one can get the full backtrace call, but I find it
 hard to read. I have created manually a sexp that simulates the backtrace, and represent it using
-@racket[#, @racketmodname[pict/tree-layout]]. The actual code for this is in the @tt{utils.rkt}
-file of the @(hyperlink "https://github.com/Panadestein/solved_sicp.git" "repo"):
+@racket[#, @racketmodname[pict/tree-layout]].
+
+@examples[#:eval my-eval-racket
+          #:label "Generate bracktrace graphs:"
+          #:no-inset
+          (require pict
+                   pict/tree-layout)
+
+          (define (make-node sexp-atom)
+            (cc-superimpose
+             (disk 25 #:color "white")
+             (text (if (symbol? sexp-atom)
+                       (symbol->string sexp-atom)
+                       (number->string sexp-atom)))))
+
+          (define (make-tree make-atom-node sexp)
+            (cond ((null? sexp) #f)
+                  ((list? sexp)
+                   (match sexp
+                     ((cons func arguments)
+                      (apply tree-layout
+                             #:pict (make-atom-node func)
+                             (map (curry make-tree make-atom-node) arguments)))
+                     (_ #f)))
+                  (else
+                   (tree-layout #:pict (make-atom-node sexp)))))
+
+          (define (tree-drawer sexp)
+            (make-tree make-node sexp))
+          ]
 
 @examples[#:eval my-eval-racket
           #:label "Solution:"
