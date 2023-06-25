@@ -1,6 +1,9 @@
 #lang scribble/manual
 
 @(require (for-label racket))
+@(require "utils.rkt")
+
+@inject-google-tag["G-HTGX3RGPVL"]
 
 @title[#:version "" #:style '(toc)]{SICP solutions}
 @author{Ramón L. Panadés Barrueta}
