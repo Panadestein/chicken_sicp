@@ -3,7 +3,7 @@
 @(require (for-label racket))
 @(require "utils.rkt")
 
-;; Inject some JavaScript for GA
+@;{Inject some JavaScript for GA}
 
 @(inject-javascript-src "https://www.googletagmanager.com/gtag/js?id=G-HTGX3RGPVL")
 @inject-javascript-inline|{
@@ -14,7 +14,7 @@
   gtag('config', 'G-HTGX3RGPVL');
   }|
 
-;; Begin document
+@;{Begin document}
 
 @title[#:version "" #:style '(toc)]{SICP solutions}
 @author{Ramón L. Panadés Barrueta}

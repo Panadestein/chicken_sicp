@@ -34,9 +34,11 @@
 (define (inject-javascript-inline . body)
   (cond-element
    [latex ""]
-   [html (make-element (make-style #f (list (make-script-property "text/javascript"
-                                                                  body)))
-                       '())]
+   [html
+    (make-element
+     (make-style #f
+                 (list (make-script-property "text/javascript" body)))
+     '())]
    [text ""]))
 
 
