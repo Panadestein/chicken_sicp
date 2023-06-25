@@ -1,14 +1,16 @@
 #lang racket
 
 (require scribble/core
-         scriblib/render-cond
          scribble/examples
+         scribble/html-properties
+         scriblib/render-cond
          pict/tree-layout)
 
 (provide my-eval-sicp
          my-eval-racket
          my-eval-lazy
-         inject-google-tag)
+         inject-javascript-inline
+         inject-javascript-src)
 
 ;; Evaluators to be used in Scribble examples
 
@@ -27,20 +29,28 @@
    #:pretty-print? #t
    #:lang 'lazy))
 
-;; Adds Google tag script to the rendered HTML output
+;; Google analytics helper functions
 
-(define (inject-google-tag id)
+(define (inject-javascript-inline . body)
   (cond-element
    [latex ""]
-   [html (list
-          (make-element
-           'script '((src . ,(string-append "https://www.googletagmanager.com/gtag/js?id=" id))
-                     (async . ""))
-           '())
-          (make-element 'script '((type . "text/javascript"))
-                        (list (string-append
-                         "window.dataLayer = window.dataLayer || [];\n"
-                         "function gtag(){dataLayer.push(arguments);}\n"
-                         "gtag('js', new Date());\n"
-                         "gtag('config', '" id "');"))))]
+   [html (make-element (make-style #f (list (make-script-property "text/javascript"
+                                                                  body)))
+                       '())]
+   [text ""]))
+
+
+(define (inject-javascript-src src)
+  (cond-element
+   [latex ""]
+   [html
+    (make-element
+     (make-style #f
+                 (list
+                  (make-alt-tag "script")
+                  (make-attributes
+                   `((type . "text/javascript")
+                     (src  . ,src)))))
+     '())]
+
    [text ""]))
