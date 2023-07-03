@@ -469,12 +469,12 @@ The above is a true statement, because @($ "|\\psi^n|<1") and @($ "2<\\sqrt{5}")
 
 @section[#:style 'unnumbered #:tag "e1.14"]{Exercise 1.14}
 
-The number of ways of giving change for certain amount @($ "a") using coins of
-types @($ "t_i") and corresponding values @($ "v(t_i)") is the sum of:
+The number of ways of giving change for certain amount @($ "n") using @($ "m") coins of
+type @($ "t_i") and corresponding values @($ "v(t_i)") is the sum of:
 
 @itemlist[
-          @item{Number of ways of giving the change @($ "a") wihout using coins of type @($ "t_i")}
-          @item{Number of ways of giving the change @($ "a - v(t_i)") using all types of coins}
+          @item{Number of ways of giving the change @($ "n") wihout using coins of type @($ "t_i")}
+          @item{Number of ways of giving the change @($ "n - v(t_i)") using all types of coins}
           ]
 
 @examples[#:eval my-eval-racket
@@ -596,4 +596,46 @@ hard to read. I have created manually a sexp that simulates the backtrace, and r
                  0.5)
           ]
 
-In applicative order, the space order of growth is then @($ "\\Theta(n)").
+In applicative order, the order of growth of space is readily found to be @($ "\\Theta(n)").
+Finding the time complexity of the algorithm is a much more difficult task. A rigorous
+analysis using generating functions can be found in chapter 7 of
+@(hyperlink "https://en.wikipedia.org/wiki/Concrete_Mathematics" "Concrete Mathematics").
+I will proof by induction on @($ "m") that the number of steps grows as @($ "O(n^m)"), so
+our hypothesis is:
+
+@($$ "T(n, m) = O(n^m)")
+
+@bold{Proof}:
+
+@itemlist[
+          @item{Base case:}
+          ]
+
+This can be easily verified from the largest branch of the tree:
+
+@($$ "T(n, 1) = 2\\Bigl\\lfloor \\frac{n}{1} \\Bigr\\rfloor +1 = O(n)")
+
+@itemlist[
+          @item{Induction step:}
+          ]
+
+We can expand the recursion tree for the case @($ "f(n, m + 1)"):
+
+@($$ "
+\\begin{align*}
+f(n&, m+1) \\rightarrow &f(n-v(&t_{m+1}), m+1) \\rightarrow \\cdots \\rightarrow
+ &f(n-\\left\\lfloor\\frac{n}{v(t_{m+1})}\\right\\rfloor &v(t_{m+1}), m+1)\\rightarrow 0\\\\
+&\\downarrow &  &\\downarrow & &\\downarrow\\\\
+f(n&, m) &f(n-v(&t_{m+1}), m) &f(n-\\left\\lfloor\\frac{n}{v(t_{m+1})}\\right\\rfloor &v(t_{m+1}), m)
+\\end{align*}
+")
+
+So we make @($ "\\text{floor}(\\frac{n}{v(t_{m+1})})") calls to the procedure of order @($ "m").
+The asymptotic behavior of this is:
+
+@($$ "
+T(n, m + 1) = \\left\\lfloor\\frac{n}{v(t_{m+1})}\\right\\rfloor O(n^m) = C\\cdot n \\cdot n^m = O(n^{m+1})
+")
+
+In the above expression, we have absorbed all multiplicative factors in the constant @($ "C"), and all
+lower order terms are ignored. @($ "\\blacksquare") 
