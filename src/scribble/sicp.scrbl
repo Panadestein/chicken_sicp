@@ -19,16 +19,16 @@
 @title[#:version "" #:style '(toc)]{SICP solutions}
 @author{Ramón L. Panadés Barrueta}
 
-Welcome to my solutions to the exercises in Abelson and Sussmand’s
+Welcome to my personal collection of solutions for the exercises in Abelson and Sussmand’s iconic
 Structure and Interpretation of Computer Programs (@(hyperlink "https://sarabander.github.io/sicp/html/" "SICP")).
-As the design of this website suggests, I have used @(hyperlink "https://racket-lang.org/" "Racket") for the task,
+As evidenced by the design of this website, my chosen instrument to tackle these problems is @(hyperlink "https://racket-lang.org/" "Racket"),
 with the languages @racket[#, @hash-lang[]] @(hyperlink "https://docs.racket-lang.org/sicp-manual/index.html" "sicp"),
 @racket[#, @hash-lang[] #, @racketmodname[racket]], and @racket[#, @hash-lang[]#, @racketmodname[lazy]].
 
-I am a physicist by training, so there may be some areas where my solutions could be improved.
-If you find any, please help me avoid embarrassment by submitting a 
-@(hyperlink "https://github.com/Panadestein/solved_sicp" "pull request"). If you'd like to compare my solutions
-to those of others, you can visit the @(hyperlink "http://community.schemewiki.org/?SICP-Solutions" "Scheme wiki")
+My academic background is in physics, so it's entirely plausible there exist areas where my solutions could benefit
+from refinement. Should you stumble upon any such opportunities, I'd appreciate you sparing me the blunder by submitting a
+@(hyperlink "https://github.com/Panadestein/solved_sicp" "pull request"). For those interested in contrasting my solutions
+with others, you're welcome to visit the @(hyperlink "http://community.schemewiki.org/?SICP-Solutions" "Scheme wiki")
 and other resources linked there.
 
 @table-of-contents[]
