@@ -657,7 +657,7 @@ The provided code helps to elucidate the solutions without explicit computation.
 
 @itemlist[
           @item{The computation of @tt{(sine 12.15)} will take 5 steps}
-          @item{The number of steps order is @($ "\\Bigl\\lceil \\log_3 10a \\Bigr\\rceil = O(\\log a)").
+          @item{The number of steps is @($ "\\Bigl\\lceil \\log_3 10a \\Bigr\\rceil = O(\\log a)").
                 The space order of groth is the same.}
           ]
 
