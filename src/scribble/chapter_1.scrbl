@@ -644,7 +644,7 @@ lower order terms are ignored. @($ "\\blacksquare")
 
 The provided code helps to elucidate the solutions without explicit computation.
 
-@examples[#:eval my-eval-racket
+@examples[#:eval my-eval-sicp
           #:label #f
           #:no-inset
           (define (cube x) (* x x x))
