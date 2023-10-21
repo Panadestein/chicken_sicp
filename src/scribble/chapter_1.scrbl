@@ -642,7 +642,14 @@ lower order terms are ignored. @($ "\\blacksquare")
 
 @section[#:style 'unnumbered #:tag "e1.15"]{Exercise 1.15}
 
-The provided code helps to elucidate the solutions without explicit computation.
+The following equation provides an elegant way of computing the sinus function. A testimony of the power of
+trigonometric identities:
+
+@($$ "
+\\sin x = 3\\sin \\frac{x}{3} - 4 \\sin^3\\frac{x}{3}
+")
+
+The provided code helps to elucidate the solutions of this problem without explicit computation.
 
 @examples[#:eval my-eval-sicp
           #:label #f
