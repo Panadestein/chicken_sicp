@@ -639,3 +639,25 @@ T(n, m + 1) = \\left\\lfloor\\frac{n}{v(t_{m+1})}\\right\\rfloor O(n^m) = C\\cdo
 
 In the above expression, we have absorbed all multiplicative factors in the constant @($ "C"), and all
 lower order terms are ignored. @($ "\\blacksquare") 
+
+@section[#:style 'unnumbered #:tag "e1.15"]{Exercise 1.15}
+
+The provided code helps to elucidate the solutions without explicit computation.
+
+@examples[#:eval my-eval-racket
+          #:label #f
+          #:no-inset
+          (define (cube x) (* x x x))
+          (define (p x) (- (* 3 x) (* 4 (cube x))))
+          (define (sine angle)
+            (if (not (> (abs angle) 0.1))
+                angle
+                (p (sine (/ angle 3.0)))))
+          ]
+
+@itemlist[
+          @item{The computation of @tt{(sine 12.15)} will take 5 steps}
+          @item{The time order of groth is @($ "\\Bigl\\lceiling \\log_3 10a \\Bigr\\rceiling = O(\\log_3 a)") }
+          ]
+
+
