@@ -2,6 +2,14 @@
 #+AUTHOR: Panadestein
 
 #+BEGIN_HTML
+<h1 align="center">
+  <img src="img/sicp_fun.png" alt="SICP" width="300">
+</h1>
+#+END_HTML
+
+* Preface
+
+#+BEGIN_HTML
 <a href="https://raw.githubusercontent.com/Panadestein/solved_sicp/master/LICENSE.md">
 <img alt="GitHub" src="https://img.shields.io/badge/License-MIT-yellow.svg">
 </a>
@@ -15,11 +23,19 @@
 </a>
 #+END_HTML
 
-This repository features my solutions to the problems included in Abelson and Sussman's
-"Structure and Interpretation of Computer Programs" ([[https://sarabander.github.io/sicp/html/][SICP]]).
+This repo contains my solutions to problems in "Structure and Interpretation of Computer Programs" ([[https://sarabander.github.io/sicp/html/][SICP]]).
+The goal is to offer a comprehensive and clean set of answers to this seminal book in computer science.
+
+* Technical Choices 
 
 The solutions are organized and presented in a visually appealing manner,
 and can be viewed either directly in the source code or on the automatically generated [[https://panadestein.github.io/solved_sicp/][website]]. 
 Initially, I considered using =org-mode= with =org-babel= for this project,
 but I ultimately chose to use  [[https://docs.racket-lang.org/scribble/index.html][scribble]] and the [[https://racket-lang.org][Racket]] ecosystem.
 This decision was driven by my desire to also use Scheme for generating the solution's website.
+
+* Contributions welcome
+
+While the pursuit of knowledge is oftentimes a solitary endeavor, the sharing of insights elevates
+it to the sublime. Feel free to contribute, critique, or engage in intellectual discourse
+through issues and pull requests.
