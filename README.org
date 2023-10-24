@@ -29,7 +29,7 @@ The goal is to offer a comprehensive and clean set of answers to this seminal bo
 * Technical Choices 
 
 The solutions are organized and presented in a visually appealing manner,
-and can be viewed either directly in the source code or on the automatically generated [[https://panadestein.github.io/solved_sicp/][website]]. 
+and can be viewed either directly in the source code or on the automatically generated [[https://panadestein.github.io/solved-sicp/][website]]. 
 Initially, I considered using =org-mode= with =org-babel= for this project,
 but I ultimately chose to use  [[https://docs.racket-lang.org/scribble/index.html][scribble]] and the [[https://racket-lang.org][Racket]] ecosystem.
 This decision was driven by my desire to also use Scheme for generating the solution's website.

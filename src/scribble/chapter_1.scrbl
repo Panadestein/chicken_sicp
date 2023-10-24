@@ -652,7 +652,7 @@ trigonometric identities:
 The provided code helps to elucidate the solutions of this problem without explicit computation.
 
 @examples[#:eval my-eval-sicp
-          #:label #f
+          #:label "Code:"
           #:no-inset
           (define (cube x) (* x x x))
           (define (p x) (- (* 3 x) (* 4 (cube x))))
@@ -666,5 +666,27 @@ The provided code helps to elucidate the solutions of this problem without expli
           @item{The computation of @tt{(sine 12.15)} will take 5 steps}
           @item{The number of steps is @($ "\\Bigl\\lceil \\log_3 10a \\Bigr\\rceil = O(\\log a)").
                 The space order of groth is the same.}
+          ]
+
+@section[#:style 'unnumbered #:tag "e1.16"]{Exercise 1.16}
+
+The iterative procedure of the exponentiation by squaring can be implemented as follows:
+
+@examples[#:eval my-eval-sicp
+          #:label "Answer:"
+          #:no-inset
+          (define (square x)
+            (* x x))
+          (define (even? x)
+            (= (remainder x 2) 0))
+          (define (expt b n)
+            (fast-exp-iter b 1 n))
+          (define (fast-exp-iter b a n)
+            (cond ((= n 0) a)
+                  ((even? n)
+                   (fast-exp-iter (square b) a (/ n 2)))
+                  (else
+                   (fast-exp-iter b (* a b) (- n 1)))))
+          (expt 2 10)
           ]
 
