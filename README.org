@@ -3,7 +3,9 @@
 
 #+BEGIN_HTML
 <h1 align="center">
-  <img src="img/sicp_fun.png" alt="SICP" width="300">
+  <a href="https://xkcd.com/297/">
+  <img src="img/my_sicp_logo.png" alt="SICP" width="300"/>
+  </a>
 </h1>
 #+END_HTML
 
@@ -18,7 +20,7 @@
 <img alt="Build status" src="https://github.com/Panadestein/solved_sicp/actions/workflows/publish.yml/badge.svg" />
 </a>
 
-<a href="https://xkcd.com/297/">
+<a href="https://github.com/Panadestein/solved-sicp/tree/master/src/scribble">
 <img alt="Solved problems" src="https://progress-bar.dev/4/?title=Solved" />
 </a>
 #+END_HTML
