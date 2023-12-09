@@ -690,3 +690,4 @@ The iterative procedure of the exponentiation by squaring can be implemented as 
           (expt 2 10)
           ]
 
+@section[#:style 'unnumbered #:tag "e1.17"]{Exercise 1.17}
