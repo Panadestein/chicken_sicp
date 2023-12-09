@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Racket action
-        uses: Bogdanp/setup-racket@v1.10
+        uses: Bogdanp/setup-racket@v1.11
         with:
           architecture: 'x64'
           distribution: 'full'
