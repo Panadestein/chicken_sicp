@@ -19,7 +19,7 @@
 @title[#:version "" #:style '(toc)]{SICP solutions}
 @author{Ramón L. Panadés Barrueta}
 
-@image["img/my_sicp_logo.png" #:scale 0.1]
+@image["img/my_sicp_logo.png" #:scale 0.05]
 
 Welcome to my personal collection of solutions for the exercises in Abelson and Sussmand’s iconic
 Structure and Interpretation of Computer Programs (@(hyperlink "https://sarabander.github.io/sicp/html/" "SICP")).

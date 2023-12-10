@@ -690,4 +690,26 @@ The iterative procedure of the exponentiation by squaring can be implemented as 
           (expt 2 10)
           ]
 
-@section[#:style 'unnumbered #:tag "e1.17"]{Exercise 1.17}
+@section[#:style 'unnumbered #:tag "e1.18"]{Exercise 1.18}
+
+For this problem, we have only addition and the @tt{double} and @tt{halve} procedures available.
+The @tt{even?} procedure is reused from the previous exercise. I have jumped directly to 1.18
+because it includes the answers to two previous problems. This is the Russian peasant method:
+
+@examples[#:eval my-eval-sicp
+          #:label "Answer:"
+          #:no-inset
+          (define (double x)
+            (+ x x))
+          (define (halve x)
+            (/ x 2))
+          (define (prod a b)
+            (fast-prod-iter a b 0))
+          (define (fast-prod-iter a b p)
+            (cond ((= b 0) p)
+                  ((even? b)
+                   (fast-prod-iter (double a) (halve b) p))
+                  (else
+                   (fast-prod-iter a (- b 1) (+ p a)))))
+          (prod 5 10)
+          ]
